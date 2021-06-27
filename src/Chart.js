@@ -1,5 +1,5 @@
 import "./styles.css";
-import React from "react";
+import React, { Component } from "react";
 import {
   BarChart,
   Bar,
@@ -10,7 +10,7 @@ import {
   Legend
 } from "recharts";
 
-const data = [
+const sampleData = [
   {
     name: "2019-08-01",
     social: 4000,
@@ -69,12 +69,14 @@ const data = [
   }
 ];
 
-export default function Chart() {
-  return (
-    <BarChart
+export class Chart extends Component {
+
+  render() {
+    return(
+      <BarChart
       width={700}
       height={500}
-      data={data}
+      data={this.props.data}
       margin={{
         top: 20,
         right: 30,
@@ -83,7 +85,7 @@ export default function Chart() {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis label={{ value: 'timestamp per day', offset: -2, position: 'insideBottom' }} />
+      <XAxis dataKey="name" label={{ value: 'timestamp per day', offset: -2, position: 'insideBottom' }} />
       <YAxis label={{ value: 'counts of records', offset: -10, angle: -90, position: 'insideLeft' }}/>
       <Tooltip />
       <Legend layout="vertical" align="right" verticalAlign= "top" iconType="circle" />
@@ -93,5 +95,8 @@ export default function Chart() {
       <Bar dataKey="tv" stackId="a" fill="#cce435" />
       <Bar dataKey="radio" stackId="a" fill="#848eb4" />
     </BarChart>
-  );
+    )
+  }
 }
+
+export default Chart
