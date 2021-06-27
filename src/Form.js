@@ -57,19 +57,19 @@ export class Form extends Component {
                  onChange={this.handleQueryChange}/>
         </div>
         <div>
-          <label>before(milliseconds)</label>
+          <label>Before(milliseconds)</label>
           <input type= 'text' 
                  value={before} 
                  onChange={this.handleBeforeChange}/>
         </div>
         <div>
-          <label>after(milliseconds)</label>
+          <label>After(milliseconds)</label>
           <input type= 'text' 
                  value={after} 
                  onChange={this.handleAfterChange}/>
         </div>
         <div>
-          <label>interval(day)</label>
+          <label>Interval(day)</label>
           <input type= 'text' 
                  value={interval} 
                  onChange={this.handleIntervalChange}/>
