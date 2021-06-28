@@ -12,7 +12,7 @@ export class Form extends Component {
       query: 'scott morrison',
       before: '2019-08-01',
       after: '2019-08-31',
-      interval: ''
+      interval: '1'
     }
   }
 
