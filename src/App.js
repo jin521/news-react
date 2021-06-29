@@ -8,8 +8,12 @@ function App() {
 
   return (
     <div className="App">
-      <Form setData={setData}/>
-      { data.length ? <Chart data={data}/> : 'please enter'}
+      <div className="form-area">
+        <Form setData={setData}/>
+      </div>
+      <div className="center">
+          { data.length ? <Chart  data={data}/> : 'Please enter search criteria and press submit'}
+      </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
+import "./styles.css";
 import React, { Component } from 'react';
 import axios from 'axios';
-import Chart from './Chart'
-
 export class Form extends Component {
   setData = this.props.setData;
 
@@ -46,7 +45,7 @@ export class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    // alert(`${this.state.query} ${this.state.before} ${this.state.after} ${this.state.interval}`)
+
     const { query, before, after, interval } = this.state
 
     const before_millisec = new Date(before).getTime()
@@ -54,9 +53,7 @@ export class Form extends Component {
 
     axios.get(`api/v1/news?query=${query}&before=${before_millisec}&after=${after_millisec}&interval=${interval}`)
     .then(res => {
-      // console.log(res.data);
       this.setData(res.data)
-      // <Chart value={res.data} />
     })
     
   }
@@ -67,30 +64,30 @@ export class Form extends Component {
     return(
       <form onSubmit={this.handleSubmit}>
         <div>
-          <label>Search Term</label>
+          <label>Search Term </label>
           <input type= 'text' 
                  value={query} 
                  onChange={this.handleQueryChange}/>
         </div>
         <div>
-          <label>Before(milliseconds)</label>
+          <label>Before Day </label>
           <input type= 'date' 
                  value={before} 
                  onChange={this.handleBeforeChange}/>
         </div>
         <div>
-          <label>After(milliseconds)</label>
+          <label>After  Day </label>
           <input type= 'date' 
                  value={after} 
                  onChange={this.handleAfterChange}/>
         </div>
         <div>
-          <label>Interval(day)</label>
+          <label>Interval(day) </label>
           <input type= 'text' 
                  value={interval} 
                  onChange={this.handleIntervalChange}/>
         </div>
-        <button type='submit'>Submit</button>
+        <button type='submit' className="button">Submit</button>
       </form>
     )
   }
